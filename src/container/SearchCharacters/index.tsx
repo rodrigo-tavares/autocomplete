@@ -1,13 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { getMovies } from "../../data/lotrData";
-import { Movie, RequestMovie } from "../../ts/interfaces/movie";
-import { Container, Header } from "./styles";
+import Autocomplete from "../../components/Autocomplete";
+import { getMovies, getMoviesFromJson } from "../../data/lotrData";
+import { Movie } from "../../ts/interfaces/movie";
+import { Container, Content, Header } from "./styles";
 
 const SearchCharacters: React.FC = () => {
   const [moviesList, setMoviesList] = useState<Movie[]>([]);
 
   const fetchMovies = useCallback(async () => {
-    const data = await getMovies().then((value) => value?.docs);
+    // const data = await getMovies().then((value) => value?.docs);
+    const data = await getMoviesFromJson().then((value) => value?.docs);
     if (data) setMoviesList(data);
   }, []);
 
@@ -18,12 +20,10 @@ const SearchCharacters: React.FC = () => {
 
   return (
     <Container>
-      <>
-        <Header>Lord of the Rings Characters Autocomplete</Header>
-        {moviesList.map((movie: Movie) => (
-          <p>{movie.name}</p>
-        ))}
-      </>
+      <Content>
+        <Header>Lord of the Rings Movies Autocomplete</Header>
+        <Autocomplete moviesList={moviesList} />
+      </Content>
     </Container>
   );
 };

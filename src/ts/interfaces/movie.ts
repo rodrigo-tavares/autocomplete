@@ -1,4 +1,4 @@
-export interface RequestMovie {
+export interface Response {
   docs: Movie[];
   limit: number;
   offset: number;

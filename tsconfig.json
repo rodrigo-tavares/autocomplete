@@ -4,16 +4,13 @@
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "resolveJsonModule": true,
+    "lib": ["dom", "esnext"],
     "strict": true,
     "sourceMap": true,
-    "target": "esnext",
+    "target": "esnext"
   },
+  "include": ["src/**/*.json"],
   "typeRoots": ["./src/ts/node.d.ts", "./node_modules/@types"],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
