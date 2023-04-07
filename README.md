@@ -4,6 +4,9 @@ This is an autocomplete app that searches movies from the Lord of the Rings univ
 
 [**Live Demo →**](https://autocomplete-drab-kappa.vercel.app/)
 
+![lotr](https://user-images.githubusercontent.com/18193620/230643984-8282374f-8bdd-46ea-a198-29feecb6db4b.gif)
+
+
 ## Installation
 
 1- Clone the boilerplate repo
@@ -29,7 +32,7 @@ src/
 |  |- container/
 |    |- SearchMovies/
 |       |- index.jsx _______________________ # Sample container the handle data
-|  |- data/
+|  |- data/ # Fetch data API or local JSON
 |  |- hooks/ # Interfaces and global configs for typescript
 |       - useAutocomplete.ts _______________ # Hook to autocomplete function
 |  |- ts/ ___________________________________# Interfaces and global configs for typescript
