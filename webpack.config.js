@@ -1,13 +1,17 @@
-const prod = process.env.NODE_ENV === 'production';
+require('dotenv').config();
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const prod = process.env.NODE_ENV === "production";
+
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = {
-  mode: prod ? 'production' : 'development',
-  entry: './src/index.tsx',
+  mode: prod ? "production" : "development",
+  entry: "./src/index.tsx",
   output: {
-    path: __dirname + '/dist/',
+    path: __dirname + "/dist/",
   },
   module: {
     rules: [
@@ -15,21 +19,25 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.json'],
+          extensions: [".ts", ".tsx", ".js", ".json"],
         },
-        use: 'ts-loader',
+        use: "ts-loader",
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-    ]
+    ],
   },
-  devtool: prod ? undefined : 'source-map',
+  devtool: prod ? undefined : "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: "src/index.html",
     }),
     new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.API_TOKEN": JSON.stringify(process.env.API_TOKEN),
+      "process.env.API_URL": JSON.stringify(process.env.API_URL),
+    }),
   ],
 };
