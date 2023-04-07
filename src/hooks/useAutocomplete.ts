@@ -12,17 +12,15 @@ const useAutocomplete = (moviesList: Movie[]) => {
       movie.name.toLowerCase().includes(value.toLowerCase())
     );
 
-    if (arrayNames.length === 0) {
-    }
-    setSuggestMovies(moviesList);
+    if (arrayNames.length === 0) setSuggestMovies(moviesList);
 
     setSuggestMovies(arrayNames);
   };
 
   const handleInputSearch = (e: React.FormEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
-    setSearchValue(value);
 
+    setSearchValue(value);
     setSelectedMovie(null);
 
     if (value.length > 0) handleFilter(value);
