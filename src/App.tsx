@@ -1,8 +1,8 @@
 import React from "react";
-import SearchCharacters from "./container/SearchCharacters";
+import SearchMovies from "./container/SearchMovies";
 
 const App = () => (
-    <SearchCharacters />
+    <SearchMovies />
 );
 
 export default App;

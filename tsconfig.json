@@ -10,7 +10,7 @@
     "sourceMap": true,
     "target": "esnext"
   },
-  "include": ["src/**/*.json"],
+  "include": ["*.json"],
   "typeRoots": ["./src/ts/node.d.ts", "./node_modules/@types"],
   "exclude": ["node_modules"]
 }

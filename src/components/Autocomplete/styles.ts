@@ -9,9 +9,8 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   padding: 1em 0.4em;
-  border: 1px solid rgb(204, 204, 204);
-  border-radius: 10px;
-  width: 100%;
+  border: 1px solid #eee;
+  max-width: 100%;
   outline: none;
   cursor: pointer;
   z-index: 1;
